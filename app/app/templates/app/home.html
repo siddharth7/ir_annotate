@@ -1,0 +1,17 @@
+<html>
+<body>
+{% if user.is_authenticated %}
+    <p>Welcome, {{ user.username }} </p>
+    <p>Tweet id : {{ tweet.tweet_id }}</p>
+    <p>Tweet text : {{ tweet.tweet_text }}<p>
+    <form action="/" method="post">
+	    <button type="submit" name="No" value="No">No</button>
+	    <button type="submit" name="Un" value="Undecided">Undecided</button>
+	    <button type="submit" name="Yes" value="Yes">Yes</button>
+	</form>
+    <p><a href="{% url 'logout_view' %}">[Logout]</a></p>
+{% else %}
+    <p>Welcome, Guest <a href="{% url 'login' %}">[login]</a></p>
+{% endif %}
+</body>
+</html>
