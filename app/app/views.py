@@ -31,20 +31,24 @@ def home(request):
 		elif request.POST.get("Un"):
 			print 'Un'
 			unannotated_tweets = TweetInfo.objects.all().filter(user=request.user, tweet_agression = '2')
-			unannotated_tweets.tweet_agression='0'
-			unannotated_tweets.save()
+			print "dad",unannotated_tweets[0]
+			t = TweetInfo.objects.get(tweet_id=unannotated_tweets[0])
+			t.tweet_agression='0'
+			t.save()
 		elif request.POST.get("Yes"):
 			print 'Yes'
 			unannotated_tweets = TweetInfo.objects.all().filter(user=request.user, tweet_agression = '2')
-			unannotated_tweets.tweet_agression='1'
-			unannotated_tweets.save()
+			print "dad",unannotated_tweets[0]
+			t = TweetInfo.objects.get(tweet_id=unannotated_tweets[0])
+			t.tweet_agression='1'
+			t.save()
 	print request.user
 	# tweets = TweetInfo.objects.all().filter(user=request.user)
 	unannotated_tweets = TweetInfo.objects.all().filter(user=request.user, tweet_agression = '2')
-	print "len", len(unannotated_tweets)
+	# print "len", len(unannotated_tweets)
 	# for tweet in tweets:
 	# 	print tweet.tweet_id
-	return render(request,'app/home.html',{'tweet' : unannotated_tweets[0]})
+	return render(request,'app/home.html',{'tweet' : unannotated_tweets[0], 'lenn':len(unannotated_tweets)})
 
 @csrf_exempt
 def login_user(request):
@@ -68,7 +72,7 @@ def logout_view(request):
 
 
 # def add_data(request):
-# 	f=open('/Users/siddharth/Desktop/IR-Project-master/newdata.dat')
+# 	f=open('/Users/siddharth/Desktop/IR-Project-master/newdata2.dat')
 
 # 	# TweetInfo.objects.all().delete()
 # 	lines = f.readlines()
