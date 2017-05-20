@@ -25,7 +25,7 @@ SECRET_KEY = '0woia7*ya)3kdr4(cy)-$ry9d+t*s^r)(8p!sgl5f5#rq)0@e4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.56.74']
 
 
 # Application definition
@@ -139,3 +139,11 @@ TEMPLATE_LOADERS = (
 )
 
 LOGIN_REDIRECT_URL = '/'
+
+ROOT_PATH = os.path.dirname(__file__)
+
+STATICFILES_DIRS = (
+    os.path.join(ROOT_PATH, 'static'),
+)
+
+print "aaa",STATICFILES_DIRS
