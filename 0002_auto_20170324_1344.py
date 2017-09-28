@@ -27,4 +27,9 @@ class Migration(migrations.Migration):
             name='tweet_text',
             field=models.CharField(max_length=1000),
         ),
+#         migrations.AlterField(
+#             model_name='tweetinfo',
+#             name='tweet_text',
+#             field=models.CharField(max_length=1000),
+#         ),
     ]
